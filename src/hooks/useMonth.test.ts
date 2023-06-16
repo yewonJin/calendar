@@ -12,14 +12,17 @@ describe("hooks 테스트", () => {
     expect(result.current.curMonth).toBe("JUN");
   });
 
-  it("prev 버튼 클릭하면 이전 월 반환", () => {});
-
   it("년도 선택 기능", () => {});
 });
 
 describe("next 버튼 클릭 했을 때", () => {
   it("12월 아니면 월 + 1", () => {
     const { result } = renderHook(() => useMonth());
+
+    // 현재 월은 6월
+    act(() => {
+      result.current.setMonth("JUN");
+    });
 
     act(() => {
       result.current.setNextMonth();
@@ -42,5 +45,38 @@ describe("next 버튼 클릭 했을 때", () => {
 
     expect(result.current.curMonth).toBe("JAN");
     expect(result.current.curYear).toBe(2024);
+  });
+});
+
+describe("prev 버튼 클릭 했을 때", () => {
+  it("1월 아니면 월 - 1", () => {
+    const { result } = renderHook(() => useMonth());
+
+    // 현재 월은 6월
+    act(() => {
+      result.current.setMonth("JUN");
+    });
+
+    act(() => {
+      result.current.setPrevMonth();
+    });
+
+    expect(result.current.curMonth).toBe("MAY");
+  });
+
+  it("1월이면 년도 - 1, 12월로 설정", () => {
+    const { result } = renderHook(() => useMonth());
+
+    // 12월로 설정
+    act(() => {
+      result.current.setMonth("JAN");
+    });
+
+    act(() => {
+      result.current.setPrevMonth();
+    });
+
+    expect(result.current.curMonth).toBe("DEC");
+    expect(result.current.curYear).toBe(2022);
   });
 });

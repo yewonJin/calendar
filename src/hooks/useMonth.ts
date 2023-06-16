@@ -19,7 +19,18 @@ const useMonth = () => {
     }
   };
 
-  return { curMonth, curYear, setMonth, setNextMonth };
+  const setPrevMonth = () => {
+    const curMonthIndex = months.indexOf(curMonth);
+
+    if (isFirstMonth(curMonthIndex)) {
+      setCurMonth(months[months.length - 1]);
+      setCurYear((prev) => prev - 1);
+    } else {
+      setCurMonth(months[curMonthIndex - 1]);
+    }
+  };
+
+  return { curMonth, curYear, setMonth, setNextMonth, setPrevMonth };
 };
 
 const months = [
@@ -39,6 +50,14 @@ const months = [
 
 const isLastMonth = (curMonthIndex: number) => {
   if (curMonthIndex === months.length - 1) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const isFirstMonth = (curMonthIndex: number) => {
+  if (curMonthIndex === 0) {
     return true;
   } else {
     return false;
