@@ -30,7 +30,11 @@ const useMonth = () => {
     }
   };
 
-  return { curMonth, curYear, setMonth, setNextMonth, setPrevMonth };
+  const setYear = (year: number) => {
+    setCurYear(year);
+  };
+
+  return { curMonth, curYear, setMonth, setNextMonth, setPrevMonth, setYear };
 };
 
 const months = [

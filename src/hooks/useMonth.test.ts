@@ -11,8 +11,6 @@ describe("hooks 테스트", () => {
   it("현재 월 반환", () => {
     expect(result.current.curMonth).toBe("JUN");
   });
-
-  it("년도 선택 기능", () => {});
 });
 
 describe("next 버튼 클릭 했을 때", () => {
@@ -78,5 +76,17 @@ describe("prev 버튼 클릭 했을 때", () => {
 
     expect(result.current.curMonth).toBe("DEC");
     expect(result.current.curYear).toBe(2022);
+  });
+});
+
+describe("년도 선택 기능", () => {
+  it("년도 선택하기", () => {
+    const { result } = renderHook(() => useMonth());
+
+    act(() => {
+      result.current.setYear(2025);
+    });
+
+    expect(result.current.curYear).toBe(2025);
   });
 });
