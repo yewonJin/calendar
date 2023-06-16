@@ -1,26 +1,19 @@
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
+import Month from "./components/Month";
+import Calendar from "./components/Calendar";
 
 function App() {
   return (
-    <Container
+    <Container      
       maxWidth="md"
       sx={{
         marginTop: "80px",
         padding: "30px 0px",
         backgroundColor: "white",
-        aspectRatio: "3/3",
       }}
     >
-      <Typography
-        variant="h2"
-        height={60}
-        textAlign={"center"}
-        fontWeight={600}
-        fontSize={24}
-        fontFamily="Inter"
-      >
-        JUN
-      </Typography>
+      <Month />
+      <Calendar />
     </Container>
   );
 }
