@@ -1,15 +1,31 @@
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import { Box, Container, IconButton, Typography } from "@mui/material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
-export default function Calendar() {
+import { Months } from "../types/month";
+
+type Props = {
+  curMonth: Months;
+  setNextMonth: () => void;
+  setPrevMonth: () => void;
+};
+
+export default function Calendar(props: Props) {
+  const { curMonth, setNextMonth, setPrevMonth } = props;
+
   return (
     <Container>
-      <Box display="flex" alignItems='center' justifyContent='center' gap="10px">
-        <IconButton aria-label="prev">
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        gap="10px"
+      >
+        <IconButton aria-label="prev" onClick={() => setPrevMonth()}>
           <ArrowBackIos />
         </IconButton>
         <Typography
           variant="h2"
+          minWidth="55px"
           lineHeight="40px"
           paddingBottom="3px"
           textAlign="center"
@@ -17,9 +33,9 @@ export default function Calendar() {
           fontSize={24}
           fontFamily="Inter"
         >
-          JUN
+          {curMonth}
         </Typography>
-        <IconButton aria-label="next">
+        <IconButton aria-label="next" onClick={() => setNextMonth()}>
           <ArrowForwardIos />
         </IconButton>
       </Box>

@@ -1,10 +1,16 @@
 import { Container } from "@mui/material";
+
 import Month from "./components/Month";
 import Calendar from "./components/Calendar";
 
+import useMonth from "./hooks/useMonth";
+import { Months } from "./types/month";
+
 function App() {
+  const { curMonth, setNextMonth, setPrevMonth } = useMonth();
+
   return (
-    <Container      
+    <Container
       maxWidth="md"
       sx={{
         marginTop: "80px",
@@ -12,7 +18,11 @@ function App() {
         backgroundColor: "white",
       }}
     >
-      <Month />
+      <Month
+        curMonth={curMonth as Months}
+        setNextMonth={setNextMonth}
+        setPrevMonth={setPrevMonth}
+      />
       <Calendar />
     </Container>
   );
