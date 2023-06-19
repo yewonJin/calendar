@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Months } from "../types/month";
+
 const useMonth = () => {
   const [curMonth, setCurMonth] = useState(months[new Date().getMonth()]);
   const [curYear, setCurYear] = useState(new Date().getFullYear());
@@ -37,7 +39,7 @@ const useMonth = () => {
   return { curMonth, curYear, setMonth, setNextMonth, setPrevMonth, setYear };
 };
 
-const months = [
+export const months: Months[] = [
   "JAN",
   "FEB",
   "MAR",
@@ -50,7 +52,7 @@ const months = [
   "OCT",
   "NOV",
   "DEC",
-] as const;
+];
 
 const isLastMonth = (curMonthIndex: number) => {
   if (curMonthIndex === months.length - 1) {
