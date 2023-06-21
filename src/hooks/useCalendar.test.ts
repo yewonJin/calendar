@@ -1,4 +1,5 @@
-import { renderHook, act } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
+
 import useCalendar from "./useCalendar";
 
 describe("월의 시작일 설정", () => {

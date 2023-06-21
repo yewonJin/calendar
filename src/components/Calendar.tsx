@@ -1,4 +1,6 @@
-import { Container, Grid, createTheme, styled } from "@mui/material";
+import { Container, Grid } from "@mui/material";
+
+import DayOfTheWeek from "./DayOfTheWeek";
 
 type Props = {
   startIndex: number;
@@ -8,19 +10,10 @@ type Props = {
 export default function Calendar(props: Props) {
   const { startIndex, endIndex } = props;
 
-  console.log(startIndex);
-
   return (
     <Container disableGutters maxWidth="md">
-      <Grid
-        container
-        width="100%"
-        textAlign="center"
-        m={0}
-        mt={2}
-        p={1}
-        columns={7}
-      >
+      <DayOfTheWeek />
+      <Grid container width="100%" textAlign="center" m={0} p={1} columns={7}>
         {Array.from(Array(7 * 6)).map((_, index) => (
           <Grid
             sx={{
