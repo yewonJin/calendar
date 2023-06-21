@@ -4,6 +4,6 @@ import '@fontsource-variable/inter';
 
 export const theme = createTheme({
   typography: {
-    fontFamily: `inter, "roboto"`,
+    fontFamily: 'inter',
   },
 });

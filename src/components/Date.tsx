@@ -20,10 +20,11 @@ export default function Date(props: Props) {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          gap="10px"
+          fontFamily="inter"
+          gap='4px'
         >
           <IconButton aria-label="prev" onClick={() => setPrevMonth()}>
-            <ArrowBackIos />
+            <ArrowBackIos sx={{ fontSize: "1.3rem" }} />
           </IconButton>
           <Typography
             variant="h2"
@@ -33,12 +34,11 @@ export default function Date(props: Props) {
             textAlign="center"
             fontWeight={600}
             fontSize={24}
-            fontFamily="Inter"
           >
             {curMonth}
           </Typography>
           <IconButton aria-label="next" onClick={() => setNextMonth()}>
-            <ArrowForwardIos />
+            <ArrowForwardIos sx={{ fontSize: "1.3rem" }} />
           </IconButton>
         </Box>
         <Typography
@@ -47,7 +47,6 @@ export default function Date(props: Props) {
           lineHeight="40px"
           fontSize={24}
           fontWeight={600}
-          fontFamily="Inter"
         >
           {curYear}
         </Typography>

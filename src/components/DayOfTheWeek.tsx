@@ -8,7 +8,7 @@ export default function DayOfTheWeek() {
       container
       width="100%"
       textAlign="center"
-      fontFamily="Inter"
+      fontFamily="inter"
       fontSize="20"
       fontWeight="600"
       m={0}

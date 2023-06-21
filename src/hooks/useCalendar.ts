@@ -1,5 +1,5 @@
+import { months } from "../lib/util";
 import { Months } from "../types/month";
-import { months } from "./useMonth";
 
 // baseYear: 2022, baseMonth: 1, baseDay: 1, baseDayOfTheWeek: "SAT";
 const useCalendar = (curMonth: Months, curYear: number) => {
