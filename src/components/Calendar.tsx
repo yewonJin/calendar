@@ -1,6 +1,15 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, createTheme, styled } from "@mui/material";
 
-export default function Calendar() {
+type Props = {
+  startIndex: number;
+  endIndex: number;
+};
+
+export default function Calendar(props: Props) {
+  const { startIndex, endIndex } = props;
+
+  console.log(startIndex);
+
   return (
     <Container disableGutters maxWidth="md">
       <Grid
@@ -14,6 +23,14 @@ export default function Calendar() {
       >
         {Array.from(Array(7 * 6)).map((_, index) => (
           <Grid
+            sx={{
+              color:
+                startIndex - 1 > index || endIndex - 1 <= index
+                  ? "#ccc"
+                  : "black",
+              backgroundColor:
+                startIndex - 1 > index || endIndex - 1 <= index ? "#ccc" : "",
+            }}
             pt={1}
             item
             key={index}
@@ -23,7 +40,7 @@ export default function Calendar() {
             height={100}
             border="1px solid #ddd"
           >
-            {index + 1}
+            {index + 2 - startIndex}
           </Grid>
         ))}
       </Grid>

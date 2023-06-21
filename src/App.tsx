@@ -4,10 +4,12 @@ import Month from "./components/Month";
 import Calendar from "./components/Calendar";
 
 import useMonth from "./hooks/useMonth";
+import useCalendar from "./hooks/useCalendar";
 import { Months } from "./types/month";
 
 function App() {
   const { curMonth, setNextMonth, setPrevMonth } = useMonth();
+  const { startIndex, endIndex } = useCalendar(curMonth, 2023);
 
   return (
     <Container
@@ -23,7 +25,7 @@ function App() {
         setNextMonth={setNextMonth}
         setPrevMonth={setPrevMonth}
       />
-      <Calendar />
+      <Calendar startIndex={startIndex} endIndex={endIndex} />
     </Container>
   );
 }
