@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { months } from "../lib/util";
 
-const useMonth = () => {
+const useDate = () => {
   const [curMonth, setCurMonth] = useState(months[new Date().getMonth()]);
   const [curYear, setCurYear] = useState(new Date().getFullYear());
 
@@ -55,4 +55,4 @@ const isFirstMonth = (curMonthIndex: number) => {
   }
 };
 
-export default useMonth;
+export default useDate;
